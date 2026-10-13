@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Práctica 4 · Interacción y animación</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body {
+      background: #dce7ee;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    #info {
+      position: fixed;
+      z-index: 2;
+      bottom: 18px;
+      left: 18px;
+      max-width: min(460px, calc(100vw - 36px));
+      padding: 13px 16px;
+      border: 1px solid rgba(32, 61, 89, .14);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .9);
+      color: #203d59;
+      box-shadow: 0 8px 30px rgba(32, 61, 89, .16);
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
+    #info strong,
+    #info span,
+    #info small {
+      display: block;
+    }
+
+    #info strong {
+      margin-bottom: 3px;
+      font-size: 15px;
+    }
+
+    #info span {
+      color: #386483;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    #info small {
+      margin-top: 7px;
+      color: #526678;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    #minimap-label {
+      position: fixed;
+      z-index: 2;
+      top: 10px;
+      left: 10px;
+      padding: 4px 7px;
+      border-radius: 5px;
+      background: rgba(32, 61, 89, .78);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .lil-gui.root {
+      --background-color: rgba(25, 44, 62, .94);
+      --widget-color: #2d516c;
+      --hover-color: #386b8d;
+      --focus-color: #4e94b9;
+      --text-color: #edf7fb;
+      --number-color: #a6e2f4;
+      --string-color: #a6e2f4;
+      margin: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      #info {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+      }
+
+      .lil-gui.root {
+        --width: min(310px, calc(100vw - 20px));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main id="container" aria-label="Simulación interactiva de un robot industrial"></main>
+  <div id="minimap-label">Vista cenital</div>
+  <aside id="info" aria-live="polite">
+    <strong>Interacción y animación · GPC P4</strong>
+    <span id="position">Posición X: 0 · Z: 0</span>
+   
+  </aside>
+
+  <script src="lib/three.min_r140.js"></script>
+  <script src="lib/OrbitControls.js"></script>
+  <script src="js/practica2_3.js"></script>
+  <script type="module" src="js/practica4_interaccion.js"></script>
+</body>
+
+</html>
